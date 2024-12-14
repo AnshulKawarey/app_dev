@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hobby_app/pages/home_page.dart';
 import 'package:hobby_app/pages/intro_page.dart';
+import 'package:hobby_app/pages/login_page.dart';
+import 'package:hobby_app/pages/settings_page.dart';
 import 'package:hobby_app/pages/signup_page.dart';
+import 'package:hobby_app/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,8 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IntroPage(),
+      home: HomePage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      routes: {
+        '/homepage': (context) => HomePage(),
+        '/intropage': (context) => IntroPage(),
+        '/loginpage': (context) => LoginPage(),
+        '/signuppage': (context) => SignupPage(),
+        '/settingspage': (context) => SettingsPage(),
+      },
     );
   }
 }
-

@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:hobby_app/components/my_drawer_tile.dart';
+
+class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      child: SafeArea(
+        child: Column(
+          children: [
+            //logo
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30.0),
+              child: Icon(
+                Icons.person,
+                size: 60,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            //home
+            MyDrawerTile(
+              icon: Icons.home,
+              onTap: () {
+                Navigator.pop(context);
+              },
+              title: "H O M E",
+            ),
+            //settings
+            MyDrawerTile(
+              icon: Icons.settings,
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.pushNamed(context, '/settingspage');
+              },
+              title: "S E T T I N G S",
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
