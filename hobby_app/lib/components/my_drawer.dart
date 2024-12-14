@@ -13,13 +13,12 @@ class MyDrawer extends StatelessWidget {
           children: [
             //logo
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30.0),
-              child: Icon(
-                Icons.person,
-                size: 60,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
+                padding: const EdgeInsets.symmetric(vertical: 30.0),
+                child: Image(
+                  image: AssetImage('assets/logo/pixelcut.png'),
+                  height: 180,
+                  width: 180,
+                )),
             //home
             MyDrawerTile(
               icon: Icons.home,
