@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color.fromARGB(255, 202, 202, 202),
-            Color.fromARGB(255, 78, 78, 78)
+            Theme.of(context).colorScheme.surface,
+            Theme.of(context).colorScheme.secondary,
           ],
         )),
       ),

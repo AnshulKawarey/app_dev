@@ -36,7 +36,7 @@ class SettingsPage extends StatelessWidget {
                 action: CupertinoSwitch(
                   activeTrackColor: Color.fromARGB(255, 27, 137, 201),
                   inactiveTrackColor: Theme.of(context).colorScheme.primary,
-                  thumbColor: Theme.of(context).colorScheme.tertiary,
+                  thumbColor: Theme.of(context).colorScheme.secondary,
                   onChanged: (value) =>
                       Provider.of<ThemeProvider>(context, listen: false)
                           .toggleTheme(),
