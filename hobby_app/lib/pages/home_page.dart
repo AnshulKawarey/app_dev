@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hobby_app/components/background.dart';
 import 'package:hobby_app/components/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,17 +21,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Theme.of(context).colorScheme.surface,
-            Theme.of(context).colorScheme.secondary,
-          ],
-        )),
-      ),
+      body: Background(),
     );
   }
 }
