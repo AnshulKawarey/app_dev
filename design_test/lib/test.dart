@@ -68,6 +68,47 @@ class _TestState extends State<Test> {
                 // ),
               ],
             ),
+            child: SafeArea(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 100,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 170,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 31, 35, 38),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(131, 29, 210, 219),
+                            offset: Offset(-1, -1),
+                            blurRadius: 7,
+                          ),
+                          BoxShadow(
+                            color: Color.fromARGB(120, 150, 168, 182),
+                            offset: Offset(-5, -5),
+                            blurRadius: 10,
+                          ),
+                          BoxShadow(
+                            color: Color.fromARGB(255, 43, 0, 143),
+                            offset: Offset(2, 2),
+                            blurRadius: 10,
+                          ),
+                          BoxShadow(
+                            color: Color.fromARGB(171, 31, 35, 38),
+                            offset: Offset(10, 17),
+                            blurRadius: 10,
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ]),
