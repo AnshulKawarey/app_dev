@@ -22,33 +22,35 @@ class MyTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(h),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).colorScheme.inversePrimary,
-              offset: Offset(h / 4, h / 4),
-              blurRadius: h / 2,
-              spreadRadius: 2,
+              color: Theme.of(context).colorScheme.primaryContainer,
+              offset: Offset(h / 2, h / 2),
+              blurRadius: h / 3,
+              spreadRadius: 1,
             ),
             BoxShadow(
-              color: Theme.of(context).colorScheme.tertiary,
-              offset: Offset(-h / 4, -h / 4),
-              blurRadius: h / 2,
-              spreadRadius: 2,
+              color: Theme.of(context).colorScheme.shadow,
+              offset: Offset(-h / 2, -h / 2),
+              blurRadius: h / 3,
+              spreadRadius: 1,
             ),
           ]),
       child: TextField(
+        minLines: null,
+        maxLines: null,
+        expands: true,
         controller: controller,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: h * 2, horizontal: h),
           enabledBorder: OutlineInputBorder(
             borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.surface),
+                BorderSide(color: Theme.of(context).colorScheme.primary),
             borderRadius: BorderRadius.circular(h),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.inversePrimary),
+                BorderSide(color: Theme.of(context).colorScheme.tertiary),
             borderRadius: BorderRadius.circular(h),
           ),
-          fillColor: Theme.of(context).colorScheme.secondary,
+          fillColor: Theme.of(context).colorScheme.primary,
           filled: true,
           hintText: hintText,
           hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),

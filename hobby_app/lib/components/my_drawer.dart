@@ -37,6 +37,15 @@ class MyDrawer extends StatelessWidget {
               },
               title: "S E T T I N G S",
             ),
+            MyDrawerTile(
+              icon: Icons.login,
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.pushNamed(context, '/loginpage');
+              },
+              title: "L O G I N",
+            ),
           ],
         ),
       ),
