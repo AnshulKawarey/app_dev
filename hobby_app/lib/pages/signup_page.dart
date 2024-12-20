@@ -1,17 +1,131 @@
 import 'package:flutter/material.dart';
+import 'package:hobby_app/components/background.dart';
+import 'package:hobby_app/components/constants.dart';
+import 'package:hobby_app/components/my_button.dart';
+import 'package:hobby_app/components/my_text_field.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class SignupPage extends StatefulWidget {
+  final Function()? onTap;
+  const SignupPage({
+    super.key,
+    required this.onTap,
+  });
 
   @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController pwController = TextEditingController();
+  final TextEditingController confirmPwController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Container(
-        height: 40,
-        width: 40,
-        color: Colors.grey[800],
-      )
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Stack(
+        children: [
+          Background(),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: w * 12),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // SizedBox(
+                    //   height: h * 20,
+                    // ),
+                    //Logo
+                    Icon(
+                      Icons.android_rounded,
+                      size: 90,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+
+                    //name
+                    MyTextField(
+                      controller: nameController,
+                      hintText: "Enter your Name",
+                      obscureText: false,
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    //email
+                    MyTextField(
+                      controller: emailController,
+                      hintText: "Enter Email",
+                      obscureText: false,
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    //password
+                    MyTextField(
+                      controller: pwController,
+                      hintText: "Enter Password",
+                      obscureText: true,
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    MyTextField(
+                      controller: confirmPwController,
+                      hintText: "Confirm Password",
+                      obscureText: true,
+                    ),
+
+                    SizedBox(
+                      height: 50,
+                    ),
+
+                    // login button
+                    MyButton(text: 'R E G I S T E R', onTap: () {}),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    //Login redirect
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Already a member?",
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                        SizedBox(
+                          width: w * 2,
+                        ),
+                        GestureDetector(
+                          onTap: widget.onTap,
+                          child: Text(
+                            'Login here',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hobby_app/components/background.dart';
 import 'package:hobby_app/components/my_settings_tile.dart';
 import 'package:hobby_app/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,17 +18,9 @@ class SettingsPage extends StatelessWidget {
         title: Text('S E T T I N G S'),
         foregroundColor: Theme.of(context).colorScheme.primary,
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Theme.of(context).colorScheme.surface,
-            Theme.of(context).colorScheme.secondary,
-          ],
-        )),
-        child: SafeArea(
+      body: Stack(children: [
+        Background(),
+        SafeArea(
           child: Column(
             children: [
               //dark mode
@@ -47,7 +40,7 @@ class SettingsPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      ]),
     );
   }
 }
