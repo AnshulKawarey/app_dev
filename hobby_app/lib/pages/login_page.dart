@@ -31,7 +31,14 @@ class _LoginPageState extends State<LoginPage> {
       hideLoadingCircle(context);
     } catch (e) {
       hideLoadingCircle(context);
-      print(e.toString());
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
     }
   }
 
@@ -53,10 +60,14 @@ class _LoginPageState extends State<LoginPage> {
                     //   height: h * 20,
                     // ),
                     //Logo
-                    Icon(
-                      Icons.android_rounded,
-                      size: 90,
-                      color: Theme.of(context).colorScheme.primary,
+                    Image(
+                      image: AssetImage('assets/logo/pixelcut.png'),
+                      height: w * 60,
+                      width: w * 60,
+                    ),
+
+                    SizedBox(
+                      height: h * 2,
                     ),
 
                     //email
@@ -67,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     SizedBox(
-                      height: 20,
+                      height: h * 2,
                     ),
 
                     //password
@@ -78,8 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     SizedBox(
-                      height: 10,
+                      height: h,
                     ),
+
                     //Forgot password
                     Align(
                       alignment: Alignment.centerRight,
@@ -93,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     SizedBox(
-                      height: 50,
+                      height: h * 5,
                     ),
 
                     // login button
@@ -103,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     SizedBox(
-                      height: 20,
+                      height: h * 2,
                     ),
 
                     //Signup redirect

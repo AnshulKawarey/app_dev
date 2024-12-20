@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hobby_app/components/background.dart';
 import 'package:hobby_app/components/constants.dart';
 import 'package:hobby_app/components/my_button.dart';
+import 'package:hobby_app/components/my_loading_circle.dart';
 import 'package:hobby_app/components/my_text_field.dart';
+import 'package:hobby_app/services/auth/auth_service.dart';
 
 class SignupPage extends StatefulWidget {
   final Function()? onTap;
@@ -16,10 +18,50 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final _auth = AuthService();
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController pwController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
+
+  void register() async {
+    //create user if pw match
+    if (pwController.text == confirmPwController.text) {
+      showLoadingCircle(context);
+      try {
+        await _auth.registerEmailPassword(
+          emailController.text,
+          pwController.text,
+        );
+        if (mounted) hideLoadingCircle(context);
+      }
+
+      //catch errors
+      catch (e) {
+        if (mounted) hideLoadingCircle(context);
+        if (mounted) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(e.toString()),
+            ),
+          );
+        }
+      }
+    }
+
+    //show error if pw dont match
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Passwords don't match"),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +130,10 @@ class _SignupPageState extends State<SignupPage> {
                     ),
 
                     // login button
-                    MyButton(text: 'R E G I S T E R', onTap: () {}),
+                    MyButton(
+                      text: 'R E G I S T E R',
+                      onTap: register,
+                    ),
 
                     SizedBox(
                       height: 20,
