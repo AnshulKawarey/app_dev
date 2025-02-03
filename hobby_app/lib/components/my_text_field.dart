@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hobby_app/components/constants.dart';
 
 class MyTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -12,48 +13,48 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.sizeOf(context).width / 100;
-    double h = MediaQuery.sizeOf(context).height / 100;
     return Container(
       width: w * 80,
       height: h * 6,
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          // color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(h),
           boxShadow: [
-            //Top Left
-            BoxShadow(
-              color: Theme.of(context).colorScheme.shadow, //cyan
-              offset: Offset(-h / 5, -h / 5),
-              blurRadius: h,
-              spreadRadius: 1,
-            ),
+            // Top Left
+            // BoxShadow(
+            //   color: Theme.of(context).colorScheme.shadow, //cyan
+            //   offset: Offset(-h / 10, -h / 10),
+            //   blurRadius: h / 1.5,
+            //   spreadRadius: 0.1,
+            // ),
             // BoxShadow(
             //   color: Theme.of(context).colorScheme.tertiary, //white
-            //   offset: Offset(-h / 20, -h / 20),
-            //   blurRadius: h,
+            //   offset: Offset(-h / 55, -h / 55),
+            //   blurRadius: h / 3,
             //   spreadRadius: 0.5,
             // ),
 
             //Bottom Right
             BoxShadow(
-              color: Theme.of(context).colorScheme.surfaceContainer, //black
-              offset: Offset(h, h),
+              color: Theme.of(context).colorScheme.inversePrimary, //black
+              offset: Offset(0.5 * h, 0.5 * h),
               blurRadius: h,
-              spreadRadius: 0.5,
+              spreadRadius: 1,
             ),
-            BoxShadow(
-              color: Theme.of(context).colorScheme.primaryContainer,
-              offset: Offset(h / 3, h / 3),
-              blurRadius: h,
-              spreadRadius: 0.5,
-            ),
+            // BoxShadow(
+            //   color: Theme.of(context).colorScheme.primaryContainer,
+            //   offset: Offset(h / 20, h / 20),
+            //   blurRadius: h,
+            //   spreadRadius: 0.1,
+            // ),
           ]),
       child: TextField(
-        minLines: null,
-        maxLines: null,
-        expands: true,
+        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        minLines: 1,
+        maxLines: 1,
+        // expands: true,
         controller: controller,
+        obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -68,7 +69,7 @@ class MyTextField extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.surfaceContainer,
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(color: Theme.of(context).colorScheme.surface),
+          hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
       ),
     );

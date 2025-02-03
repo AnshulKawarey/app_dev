@@ -1,13 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hobby_app/pages/home_page.dart';
-import 'package:hobby_app/pages/intro_page.dart';
-import 'package:hobby_app/pages/login_page.dart';
-import 'package:hobby_app/pages/settings_page.dart';
-import 'package:hobby_app/pages/signup_page.dart';
+import 'package:hobby_app/firebase_options.dart';
+import 'package:hobby_app/services/auth/auth_gate.dart';
 import 'package:hobby_app/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeProvider(),
     child: const MyApp(),
@@ -17,21 +18,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AuthGate(),
       theme: Provider.of<ThemeProvider>(context).themeData,
-      // theme: darkMode,
-      routes: {
-        '/homepage': (context) => HomePage(),
-        '/intropage': (context) => IntroPage(),
-        '/loginpage': (context) => LoginPage(),
-        '/signuppage': (context) => SignupPage(),
-        '/settingspage': (context) => SettingsPage(),
-      },
     );
   }
 }

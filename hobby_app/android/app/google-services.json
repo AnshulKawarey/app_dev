@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "599154607175",
+    "project_id": "hobby-ville",
+    "storage_bucket": "hobby-ville.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599154607175:android:4538a6d7ff1e728aed5d62",
+        "android_client_info": {
+          "package_name": "app.hobbyville"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8uBNYmORil7yi0ddSHo6IE8XifKSjTQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599154607175:android:508afccf5f71a081ed5d62",
+        "android_client_info": {
+          "package_name": "com.example.hobby_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8uBNYmORil7yi0ddSHo6IE8XifKSjTQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

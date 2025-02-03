@@ -1,0 +1,6 @@
+- get a service to verify the account to not be a bot
+
+- make a list of hobbies to keep in the selection menu and a way to add and verify hobbies
+
+- a way to hold all the hobbies in the user profile
+

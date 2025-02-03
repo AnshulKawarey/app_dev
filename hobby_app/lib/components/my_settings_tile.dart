@@ -9,14 +9,15 @@ class MySettingsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(left: 25, right: 25, top: 10),
-        padding: EdgeInsets.all(15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title),
-            action,
-          ],
-        ));
+      margin: const EdgeInsets.only(left: 25, right: 25, top: 10),
+      padding: EdgeInsets.all(15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title),
+          action,
+        ],
+      ),
+    );
   }
 }
